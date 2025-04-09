@@ -47,7 +47,7 @@ def nutritional_table_detection_preview():
                 ),
                 400,
             )
-        return jsonify({"status": "success", "data": result, "uuid": })
+        return jsonify({"status": "success", "data": result, "uuid": boxes_uuid})
     except Exception as e:
         return jsonify({"status": str(e)}), 500
 
