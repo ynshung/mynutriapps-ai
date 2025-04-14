@@ -1,11 +1,11 @@
 import FoodProductImageClassification as fpic
+import FoodProductImageVectorization as fpiv
 import NutritionalTableDetection as ntd
 from flask_apscheduler import APScheduler
 from flask import Flask, request, jsonify, send_file
 from PIL import Image
 import json
 import os
-from flask import send_from_directory
 
 app = Flask(__name__)
 
@@ -75,6 +75,20 @@ def clear_temp_folder():
             for image in images[:64]:  # Remove the oldest 64 images
                 os.remove(image)
 
+
+@app.route("/api/v1/fpiv", methods=["POST"])
+def vectorize_image():
+    if "image" not in request.files:
+        return jsonify({"status": "error"}), 400
+
+    image = request.files["image"]
+
+    try:
+        image = Image.open(image.stream).convert("RGB")
+        embedding = fpiv.get_embedding(image)
+        return jsonify({"status": "success", "data": embedding.tolist()}), 200
+    except Exception as e:
+        return jsonify({"status": str(e)}), 500
 
 scheduler = APScheduler()
 scheduler.init_app(app)
