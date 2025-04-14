@@ -1,7 +1,6 @@
 from ultralytics import YOLO
 from PIL import Image
 import uuid
-import json
 
 model = YOLO("model/yolov10.pt")
 
