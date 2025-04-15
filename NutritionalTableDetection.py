@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 from PIL import Image
 import uuid
+import os
 
 model = YOLO("model/yolov10.pt")
 
@@ -11,6 +12,7 @@ def highlight_boxes(img):
         return None, None
 
     image_uuid = uuid.uuid4().hex
+    os.makedirs("temp", exist_ok=True)
     temp_path = f"temp/{image_uuid}.jpg"
     result.save(temp_path)
 
