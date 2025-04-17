@@ -9,5 +9,6 @@
 * [transformers](https://huggingface.co/docs/transformers/en/installation)
 * [ultralytics](https://docs.ultralytics.com/quickstart/)
 * flask and Flask-APScheduler
+* Production: waitress
 
 For new environment, run `apt-get install -y libgl1-mesa-dev`. See [issue](https://github.com/ultralytics/ultralytics/issues/1270).
