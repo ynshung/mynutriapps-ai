@@ -11,4 +11,4 @@
 * flask and Flask-APScheduler
 * Production: waitress
 
-For new environment, run `apt-get install -y libgl1-mesa-dev ibglib2.0-0`. See [issue](https://github.com/ultralytics/ultralytics/issues/1270).
+For new environment, run `apt-get install -y libgl1-mesa-dev libglib2.0-0`. See [issue](https://github.com/ultralytics/ultralytics/issues/1270).
