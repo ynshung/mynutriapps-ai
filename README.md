@@ -12,3 +12,7 @@
 * Production: waitress
 
 For new environment, run `apt-get install -y libgl1-mesa-dev libglib2.0-0`. See [issue](https://github.com/ultralytics/ultralytics/issues/1270).
+
+## Instructions
+* Serve in development mode: `python serve.py`
+* Serve in production mode: `waitress-serve --port 5001 main:app`

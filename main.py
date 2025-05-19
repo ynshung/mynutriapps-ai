@@ -98,9 +98,5 @@ scheduler.add_job(
 )
 
 
-def create_app():
-    return app
-
-
 if __name__ == "__main__":
     pass

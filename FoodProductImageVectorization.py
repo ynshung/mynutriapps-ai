@@ -6,7 +6,11 @@ MODEL_NAME = "openai/clip-vit-base-patch32"
 model = CLIPModel.from_pretrained(MODEL_NAME)
 processor = CLIPProcessor.from_pretrained(MODEL_NAME)
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+if torch.backends.mps.is_available():
+    device = torch.device("mps")
+else:
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
 model.to(device)
 
 def get_embedding(image):
